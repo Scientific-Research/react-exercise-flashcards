@@ -55,7 +55,6 @@ function FlashCards() {
           </React.Fragment>
         ))}
       </ul>
-      ;
     </>
   );
 }
