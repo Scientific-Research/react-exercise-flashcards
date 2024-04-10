@@ -1,3 +1,4 @@
+import React from "react";
 import "./index.css";
 
 export default function App() {
@@ -48,10 +49,10 @@ function FlashCards() {
     <>
       <ul>
         {questions.map((q) => (
-          <>
+          <React.Fragment key={q.id}>
             <li>{q.question}</li>
             <li>{q.answer}</li>
-          </>
+          </React.Fragment>
         ))}
       </ul>
       ;
