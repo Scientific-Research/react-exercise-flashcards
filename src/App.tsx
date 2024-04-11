@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 
 export default function App() {
@@ -45,12 +45,20 @@ const questions = [
 
 function FlashCards() {
   // return <div>TODO</div>;
+  const [flashcard, setFlashcard] = useState(1);
+
+  // const handleFlashcard = () => {
+  //   console.log("hallo from flashcard");
+  //   set;
+  // };
+  console.log(flashcard);
+
   return (
     <>
       <div className="flashcards">
         {questions.map((q) => (
           <React.Fragment key={q.id}>
-            <div>{q.question}</div>
+            <div onClick={() => setFlashcard(q.id)}>{q.question}</div>
             {/* <li>{q.answer}</li> */}
           </React.Fragment>
         ))}
