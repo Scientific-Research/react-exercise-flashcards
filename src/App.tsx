@@ -68,7 +68,7 @@ function FlashCards() {
             {selectedId === 1297 ? (
               // <div className="selected">{selectedAnswer}</div>
               <div className={`${q.id === 1297 ? "selected" : ""}`}>
-                {q.answer}
+                {q.id === 1297 ? q.answer : q.question}
               </div>
             ) : (
               <div onClick={() => handleSelectedId(q.id, q.answer)}>
