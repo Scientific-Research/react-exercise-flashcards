@@ -45,12 +45,12 @@ const questions = [
 
 function FlashCards() {
   // return <div>TODO</div>;
-  const [selectedId, setselectedId] = useState(1);
+  // NOTE: we want that none of the questions will be open at the beginning! => useState(null)
+  const [selectedId, setselectedId] = useState<null | number>(null);
 
-  // const handleFlashcard = () => {
-  //   console.log("hallo from flashcard");
-  //   set;
-  // };
+  const handleSelectedId = (id: number | null) => {
+    setselectedId(() => id);
+  };
   console.log(selectedId);
 
   return (
@@ -58,7 +58,9 @@ function FlashCards() {
       <div className="flashcards">
         {questions.map((q) => (
           <React.Fragment key={q.id}>
-            <div onClick={() => setselectedId(q.id)}>{q.question}</div>
+            {/* <div onClick={() => setselectedId(q.id)}>{q.question}</div> */}
+            {/* ODER */}
+            <div onClick={() => handleSelectedId(q.id)}>{q.question}</div>
             {/* <li>{q.answer}</li> */}
           </React.Fragment>
         ))}
