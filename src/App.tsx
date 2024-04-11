@@ -46,38 +46,24 @@ const questions = [
 function FlashCards() {
   // return <div>TODO</div>;
   // NOTE: we want that none of the questions will be open at the beginning! => useState(null)
-  const [selectedId, setSelectedId] = useState<null | number>(null);
-  const [selectedAnswer, setselectedAnswer] = useState<null | string>(null);
+  const [selectedId, setSelectedId] = useState(9103);
 
-  const handleSelectedId = (id: number | null, ans: string | null) => {
+  const handleSelectedId = (id: number) => {
     setSelectedId(() => id);
-    setselectedAnswer(() => ans);
   };
   console.log(selectedId);
-  console.log(selectedAnswer);
 
   return (
     <>
       <div className="flashcards">
         {questions.map((q) => (
-          <React.Fragment key={q.id}>
-            {/* <div onClick={() => setselectedId(q.id)}>{q.question}</div> */}
-            {/* ODER */}
+          <div key={q.id}>
+            {/* <div className={`${q.id === 9103 ? "selected" : ""}`}> */}
+            {/* {q.id === 1297 ? q.answer : q.question} */}
+            {/* </div> */}
             {/* <div onClick={() => handleSelectedId(q.id)}>{q.question}</div> */}
-            {/* <div>{q.question}</div> */}
-            {selectedId === 1297 ? (
-              // <div className="selected">{selectedAnswer}</div>
-              <div className={`${q.id === 1297 ? "selected" : ""}`}>
-                {q.id === 1297 ? q.answer : q.question}
-              </div>
-            ) : (
-              <div onClick={() => handleSelectedId(q.id, q.answer)}>
-                {q.question}
-              </div>
-            )}
-            {/* {selectedId === 9103 && <div>{q.answer}</div>} */}
-            {/* {selectedId === 9103 && <div>{selectedAnswer}</div>} */}
-          </React.Fragment>
+            <p>{q.id === selectedId ? q.answer : q.question}</p>
+          </div>
         ))}
       </div>
     </>
