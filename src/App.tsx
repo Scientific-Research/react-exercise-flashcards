@@ -46,10 +46,10 @@ const questions = [
 function FlashCards() {
   // return <div>TODO</div>;
   // NOTE: we want that none of the questions will be open at the beginning! => useState(null)
-  const [selectedId, setSelectedId] = useState(9103);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
 
-  const handleSelectedId = (id: number) => {
-    setSelectedId((id) => id);
+  const handleSelectedId = (id: React.SetStateAction<number | null>) => {
+    setSelectedId(id);
   };
   console.log(selectedId);
 
@@ -57,14 +57,11 @@ function FlashCards() {
     <>
       <div className="flashcards">
         {questions.map((q) => (
-          <div key={q.id} className={q.id === selectedId ? "selected" : ""}>
-            {/* <div className={`${q.id === 9103 ? "selected" : ""}`}> */}
-            {/* {q.id === 1297 ? q.answer : q.question} */}
-            {/* </div> */}
-            {/* <div onClick={() => handleSelectedId(q.id)}> */}
-            {/* {q.question} */}
-            {/* {q.id === selectedId ? q.answer : q.question}
-            </div> */}
+          <div
+            onClick={() => handleSelectedId(q.id)}
+            key={q.id}
+            className={q.id === selectedId ? "selected" : ""}
+          >
             <p>{q.id === selectedId ? q.answer : q.question}</p>
           </div>
         ))}
