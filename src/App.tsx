@@ -49,7 +49,7 @@ function FlashCards() {
   const [selectedId, setSelectedId] = useState(9103);
 
   const handleSelectedId = (id: number) => {
-    setSelectedId(() => id);
+    setSelectedId((id) => id);
   };
   console.log(selectedId);
 
@@ -57,11 +57,14 @@ function FlashCards() {
     <>
       <div className="flashcards">
         {questions.map((q) => (
-          <div key={q.id}>
+          <div key={q.id} className={q.id === selectedId ? "selected" : ""}>
             {/* <div className={`${q.id === 9103 ? "selected" : ""}`}> */}
             {/* {q.id === 1297 ? q.answer : q.question} */}
             {/* </div> */}
-            {/* <div onClick={() => handleSelectedId(q.id)}>{q.question}</div> */}
+            {/* <div onClick={() => handleSelectedId(q.id)}> */}
+            {/* {q.question} */}
+            {/* {q.id === selectedId ? q.answer : q.question}
+            </div> */}
             <p>{q.id === selectedId ? q.answer : q.question}</p>
           </div>
         ))}
