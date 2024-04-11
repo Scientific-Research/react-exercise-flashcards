@@ -45,20 +45,20 @@ const questions = [
 
 function FlashCards() {
   // return <div>TODO</div>;
-  const [flashcard, setFlashcard] = useState(1);
+  const [selectedId, setselectedId] = useState(1);
 
   // const handleFlashcard = () => {
   //   console.log("hallo from flashcard");
   //   set;
   // };
-  console.log(flashcard);
+  console.log(selectedId);
 
   return (
     <>
       <div className="flashcards">
         {questions.map((q) => (
           <React.Fragment key={q.id}>
-            <div onClick={() => setFlashcard(q.id)}>{q.question}</div>
+            <div onClick={() => setselectedId(q.id)}>{q.question}</div>
             {/* <li>{q.answer}</li> */}
           </React.Fragment>
         ))}
