@@ -65,8 +65,11 @@ function FlashCards() {
             {/* ODER */}
             {/* <div onClick={() => handleSelectedId(q.id)}>{q.question}</div> */}
             {/* <div>{q.question}</div> */}
-            {selectedId === 9103 ? (
-              <div>{selectedAnswer}</div>
+            {selectedId === 1297 ? (
+              // <div className="selected">{selectedAnswer}</div>
+              <div className={`${q.id === 1297 ? "selected" : ""}`}>
+                {q.answer}
+              </div>
             ) : (
               <div onClick={() => handleSelectedId(q.id, q.answer)}>
                 {q.question}
