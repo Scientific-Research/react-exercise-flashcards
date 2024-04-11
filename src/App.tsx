@@ -47,14 +47,14 @@ function FlashCards() {
   // return <div>TODO</div>;
   return (
     <>
-      <ul>
+      <div className="flashcards">
         {questions.map((q) => (
           <React.Fragment key={q.id}>
-            <li>{q.question}</li>
-            <li>{q.answer}</li>
+            <div>{q.question}</div>
+            {/* <li>{q.answer}</li> */}
           </React.Fragment>
         ))}
-      </ul>
+      </div>
     </>
   );
 }
