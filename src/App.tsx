@@ -49,7 +49,11 @@ function FlashCards() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const handleSelectedId = (id: React.SetStateAction<number | null>) => {
-    setSelectedId(id);
+    // setSelectedId(id);
+    // NOTE: how to change the code in such a way that when i click again, the current flashcrad will be deselected!
+    // This works so: when i click on the new flashcard, the q.id or here id would not be equal to the selectedId(selectedId was set already on the old q.id) => q.id or id from new flashcard would be set, otherwise when both of them are equal, nothing(null) would be set and only the current flashcard would be deselected!
+    //RESULT: when i click on the current flashcard, it will deselected and when i click on the new flashcard it would be selected!
+    setSelectedId(id !== selectedId ? id : null);
   };
   console.log(selectedId);
 
